@@ -1,0 +1,10 @@
+<div style="padding-left: 50px;"><h1>Team Members</h1></div>
+<div class="d-flex align-items-center">
+  <hr />
+  <div class="row">
+    <div *ngFor="let team of teams" class="col-md-5">
+      <app-team-thumbnail [team]="team"></app-team-thumbnail>
+      <hr />
+    </div>
+  </div>
+</div>

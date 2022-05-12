@@ -1,0 +1,41 @@
+<h1>Claims</h1>
+<a routerLink="add" class="btn btn-sm btn-success mb-2">Add Claim</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th style="width: 30%">Patient</th>
+      <th style="width: 30%">Provider</th>
+      <th style="width: 30%">Age</th>
+      <th style="width: 10%">InPatient</th>
+            <th style="width: 30%">Dead</th>
+            <th style="width: 10%">Days Admitted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Claim of claims">
+      <td>{{Claim.beneId}}</td>
+      <td>{{Claim.provider}}</td>
+      <td>{{Claim.age}}</td>
+      <td>{{Claim.isInpatient}}</td>
+      <td>{{Claim.isDead}}</td>
+      <td>{{Claim.daysAdmitted}}</td>
+      <td style="white-space: nowrap">
+        <a routerLink="edit/{{Claim.id}}" class="btn btn-sm btn-primary mr-1">Edit</a>
+        <button (click)="verifyClaim(Claim.id)" class="btn btn-sm btn-info mr-1" [disabled]="Claim.isVerifying">
+          <span *ngIf="Claim.isVerifying" class="spinner-border spinner-border-sm"></span>
+          <span *ngIf="!Claim.isVerifying">Verify</span>
+        </button>
+        <button (click)="deleteClaim(Claim.id)" class="btn btn-sm btn-danger btn-delete-Claim"
+          [disabled]="Claim.isDeleting">
+          <span *ngIf="Claim.isDeleting" class="spinner-border spinner-border-sm"></span>
+          <span *ngIf="!Claim.isDeleting">Delete</span>
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="!claims">
+      <td colspan="4" class="text-center">
+        <span class="spinner-border spinner-border-lg align-center"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>

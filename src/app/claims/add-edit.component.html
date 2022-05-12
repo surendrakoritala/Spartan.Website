@@ -1,0 +1,213 @@
+<h3 *ngIf="isAddMode">Add Claim</h3>
+<h3 *ngIf="!isAddMode">Edit Claim</h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <h5>Profile Information</h5>
+  <div class="form-row">
+    <div class="form-group col-3">
+      <label>Patient ID</label>
+      <input type="text" formControlName="beneId" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.beneId.errors }" />
+      <div *ngIf="submitted && f.beneId.errors" class="invalid-feedback">
+        <div *ngIf="f.beneId.errors.required">Patient Id is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>Provider</label>
+      <input type="text" formControlName="provider" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.provider.errors }" />
+      <div *ngIf="submitted && f.provider.errors" class="invalid-feedback">
+        <div *ngIf="f.provider.errors.required">Provider is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>Age</label>
+      <input type="number" formControlName="age" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.age.errors }" />
+      <div *ngIf="submitted && f.age.errors" class="invalid-feedback">
+        <div *ngIf="f.age.errors.required">Age is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="isInpatient" class="custom-control-input" id="customSwitches100">
+        <label class="custom-control-label" for="customSwitches100">InPatient</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <select id="customSelect">
+        <option *ngFor="let Gender of keys(genders)" [ngValue]="genders[Gender]">{{Gender}}</option>
+      </select>
+    </div>
+    <div class="form-group col-3">
+      <label>Race</label>
+      <input type="number" formControlName="race" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.race.errors }" />
+      <div *ngIf="submitted && f.race.errors" class="invalid-feedback">
+        <div *ngIf="f.race.errors.required">Race is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>isDead</label>
+      <input type="number" formControlName="isDead" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.isDead.errors }" />
+      <div *ngIf="submitted && f.isDead.errors" class="invalid-feedback">
+        <div *ngIf="f.isDead.errors.required">isDead is required</div>
+      </div>
+    </div>
+  </div>
+  <h5>Historical Health Conidtions</h5>
+  <div class="form-row">
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="renalDiseaseIndicator" class="custom-control-input" id="customSwitches1">
+        <label class="custom-control-label" for="customSwitches1">Renal Disease Indicator</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondAlzheimer" class="custom-control-input" id="customSwitches2">
+        <label class="custom-control-label" for="customSwitches2">Alzheimer</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondHeartfailure" class="custom-control-input" id="customSwitches3">
+        <label class="custom-control-label" for="customSwitches3">Heart failure</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondKidneyDisease" class="custom-control-input" id="customSwitches4">
+        <label class="custom-control-label" for="customSwitches4">Kidney Disease</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondCancer" class="custom-control-input" id="customSwitches5">
+        <label class="custom-control-label" for="customSwitches5">Cancer</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondObstrPulmonary" class="custom-control-input" id="customSwitches6">
+        <label class="custom-control-label" for="customSwitches6">Obstr Pulmonary</label>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondDepression" class="custom-control-input" id="customSwitches7">
+        <label class="custom-control-label" for="customSwitches7">Depression</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondDiabetes" class="custom-control-input" id="customSwitches8">
+        <label class="custom-control-label" for="customSwitches8">Diabetes</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondIschemicHeart" class="custom-control-input" id="customSwitches9">
+        <label class="custom-control-label" for="customSwitches9">Ischemic Heart</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondOsteoporasis" class="custom-control-input" id="customSwitches10">
+        <label class="custom-control-label" for="customSwitches10">Osteoporasis</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondRheumatoidarthritis" class="custom-control-input" id="customSwitches11">
+        <label class="custom-control-label" for="customSwitches11">Rheumatoidarthritis</label>
+      </div>
+    </div>
+    <div class="form-group col-2">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" formControlName="chronicCondStroke" class="custom-control-input" id="customSwitches12">
+        <label class="custom-control-label" for="customSwitches12">Stroke</label>
+      </div>
+    </div>
+  </div>
+  <h5>Claims Information</h5>
+  <div class="form-row">
+    <div class="form-group col-3">
+      <label>IP Annual Reimbursement Amount</label>
+      <input type="number" formControlName="ipannualReimbursementAmt" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.ipannualReimbursementAmt.errors }" />
+      <div *ngIf="submitted && f.ipannualReimbursementAmt.errors" class="invalid-feedback">
+        <div *ngIf="f.ipannualReimbursementAmt.errors.required">ipannualReimbursementAmt is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>IP Annual Deductible Amount</label>
+      <input type="number" formControlName="ipannualDeductibleAmt" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.ipannualDeductibleAmt.errors }" />
+      <div *ngIf="submitted && f.ipannualDeductibleAmt.errors" class="invalid-feedback">
+        <div *ngIf="f.ipannualDeductibleAmt.errors.required">ipannualDeductibleAmt is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>OP Annual Reimbursement Amount</label>
+      <input type="number" formControlName="opannualReimbursementAmt" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.opannualReimbursementAmt.errors }" />
+      <div *ngIf="submitted && f.opannualReimbursementAmt.errors" class="invalid-feedback">
+        <div *ngIf="f.opannualReimbursementAmt.errors.required">opannualReimbursementAmt is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>OP Annual Deductible Amount</label>
+      <input type="number" formControlName="opannualDeductibleAmt" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.opannualDeductibleAmt.errors }" />
+      <div *ngIf="submitted && f.opannualDeductibleAmt.errors" class="invalid-feedback">
+        <div *ngIf="f.opannualDeductibleAmt.errors.required">opannualDeductibleAmt is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-3">
+      <label>insc Claim Amount Reimbursed</label>
+      <input type="number" formControlName="inscClaimAmtReimbursed" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.inscClaimAmtReimbursed.errors }" />
+      <div *ngIf="submitted && f.inscClaimAmtReimbursed.errors" class="invalid-feedback">
+        <div *ngIf="f.inscClaimAmtReimbursed.errors.required">inscClaimAmtReimbursed is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>Days Admitted</label>
+      <input type="number" formControlName="daysAdmitted" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.daysAdmitted.errors }" />
+      <div *ngIf="submitted && f.daysAdmitted.errors" class="invalid-feedback">
+        <div *ngIf="f.daysAdmitted.errors.required">daysAdmitted is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>Total Diagnosis</label>
+      <input type="number" formControlName="totalDiagnosis" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.totalDiagnosis.errors }" />
+      <div *ngIf="submitted && f.totalDiagnosis.errors" class="invalid-feedback">
+        <div *ngIf="f.totalDiagnosis.errors.required">totalDiagnosis is required</div>
+      </div>
+    </div>
+    <div class="form-group col-3">
+      <label>Total Procedure</label>
+      <input type="number" formControlName="totalProcedure" class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.totalProcedure.errors }" />
+      <div *ngIf="submitted && f.totalProcedure.errors" class="invalid-feedback">
+        <div *ngIf="f.totalProcedure.errors.required">totalProcedure is required</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary">
+      <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+      Save
+    </button>
+    <a routerLink="/claims" class="btn btn-link">Cancel</a>
+  </div>
+</form>

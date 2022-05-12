@@ -1,0 +1,40 @@
+.navbar-btn {
+    border-color: #ae142a;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: #fff;
+    background-color: #ae142a;
+    padding: 6px 12px !important;
+    margin: 0px 0px 0px 10px;
+}
+.navbar-btn:hover {
+    color: #FFF;
+    background-color: #337AB7 !important;
+    border-color: #2E6DA4 !important;
+}
+
+.btn-primary {
+    border-color: #ae142a;
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+    color: #fff;
+}
+
+body {
+height: 98vh;
+width: 100vw;
+}
+
+html, body, .container {
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+#main-container {
+  background-image: url("../assets/cloth.jpg");
+  width: 100vw;
+  height: 94vh;
+}

@@ -1,0 +1,22 @@
+<!-- <mat-card class="card">
+  <mat-card-title>{{ team.firstName }} {{ team.lastName }}</mat-card-title>
+  <mat-card-subtitle>
+    <a href="mailto:{{ team.email }}">
+      {{ team?.email }}
+    </a><br>
+  </mat-card-subtitle>
+  <mat-card-content>{{ team.department }}</mat-card-content>
+</mat-card> -->
+
+<div class="card border-info mb-3" style="max-width: 30rem;">
+  <div class="card-header">{{ team.firstName }} {{ team.lastName }}</div>
+  <div class="card-body text-info">
+    <h5 class="card-title">
+      <a href="mailto:{{ team.email }}">
+        {{ team?.email }}
+      </a>
+    </h5>
+    <p class="card-text">{{ team.department }}
+    </p>
+  </div>
+</div>
