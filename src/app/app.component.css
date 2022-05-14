@@ -34,7 +34,6 @@ html, body, .container {
 }
 
 #main-container {
-  background-image: url("../assets/cloth.jpg");
   width: 100vw;
   height: 94vh;
 }

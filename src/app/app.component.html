@@ -1,5 +1,5 @@
 <!-- nav -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: #e3f2fd;">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" [style.background-image]="'url(../assets/ai-header.jpg)'">
   <a class="navbar-brand" href="#">Spartan</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,34 +9,28 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><b>Home</b></a>
+        <a class="nav-item nav-link" routerLink="/" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}"><b>Home</b></a>
       </li>
       <li class="nav-item">
         <a class="nav-item nav-link" routerLink="/claims" routerLinkActive="active"><b>Claims</b></a>
       </li>
       <li class="nav-item">
-          <a class="nav-item nav-link" routerLink="/analytics" routerLinkActive="active"><b>Analytics</b></a>
+        <a class="nav-item nav-link" routerLink="/analytics" routerLinkActive="active"><b>Analytics</b></a>
       </li>
       <li class="nav-item">
         <a class="nav-item nav-link" routerLink="/team" routerLinkActive="active"><b>Team</b></a>
       </li>
     </ul>
-    <button type="button" class="btn btn-success navbar-btn login-btn" *ngIf="!loginDisplay" (click)="login()">Login</button>
-    <button type="button" class="btn btn-danger navbar-btn logout-btn" *ngIf="loginDisplay" (click)="logout()">Logout</button>
+    <button type="button" class="btn btn-success navbar-btn login-btn" *ngIf="!loginDisplay"
+      (click)="login()">Login</button>
+    <button type="button" class="btn btn-danger navbar-btn logout-btn" *ngIf="loginDisplay"
+      (click)="logout()">Logout</button>
   </div>
 </nav>
-<!-- <nav  class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="nav-item nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
-      <a class="nav-item nav-link" routerLink="/claims" routerLinkActive="active">Claims</a>
-    </div>
-    <button type="button" class="btn btn-danger navbar-btn login-btn" *ngIf="!loginDisplay" (click)="login()">Login</button>
-  </div>
-</nav> -->
 
 <!-- main app container -->
-<div class="app-container bg-light" id="main-container" [style.background-image]="'url(../assets/cloth.jpg)'">
+<div class="app-container bg-light" id="main-container" [style.background-image]="'url(../assets/ai.jpg)'">
   <alert></alert>
   <router-outlet></router-outlet>
 </div>

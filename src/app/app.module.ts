@@ -5,7 +5,6 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home';
 import { AlertComponent } from './_components';
-import { fakeBackendProvider } from './_helpers';
 import { ErrorInterceptor } from './_helpers';
 import { AppRoutingModule } from './app-routing.module';
 import { MsalModule, MsalRedirectComponent, MsalGuard } from '@azure/msal-angular';
@@ -14,8 +13,6 @@ import { PowerBIEmbedModule } from 'powerbi-client-angular';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { environment } from 'src/environments/environment';
 import { TeamComponent, TeamThumbnailComponent, TeamService } from './team';
-
-import { MatCardModule } from '@angular/material/card';
 
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -28,7 +25,6 @@ const isIE =
     HttpClientModule,
     AppRoutingModule,
     PowerBIEmbedModule,
-    MatCardModule,
     MsalModule.forRoot(
       new PublicClientApplication({
         auth: {
@@ -66,9 +62,6 @@ const isIE =
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-
-    // provider used to create fake backend
-    fakeBackendProvider,
     TeamService,
   ],
   bootstrap: [AppComponent, MsalRedirectComponent],

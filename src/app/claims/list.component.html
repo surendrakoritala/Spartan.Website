@@ -1,4 +1,4 @@
-<h1>Claims</h1>
+<h1>Claims Management</h1>
 <a routerLink="add" class="btn btn-sm btn-success mb-2">Add Claim</a>
 <table class="table table-striped">
   <thead>
@@ -7,12 +7,12 @@
       <th style="width: 30%">Provider</th>
       <th style="width: 30%">Age</th>
       <th style="width: 10%">InPatient</th>
-            <th style="width: 30%">Dead</th>
-            <th style="width: 10%">Days Admitted</th>
+      <th style="width: 30%">Dead</th>
+      <th style="width: 10%">Days Admitted</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let Claim of claims">
+    <tr *ngFor="let Claim of claims" style="color: darkred">
       <td>{{Claim.beneId}}</td>
       <td>{{Claim.provider}}</td>
       <td>{{Claim.age}}</td>
